@@ -43,8 +43,10 @@ A **Pose Estimation Game** built using **Python**, **Pygame**, **OpenCV**, and *
     git clone https://github.com/phamchivy/Motion-checking.git
     cd Motion-checking
 2. Install dependencies:
+    ```bash
     pip install -r requirements.txt
 3. Run the game:
+    ```bash
     python main.py
 ## Screenshots 📸
     Include relevant screenshots of the game here.
