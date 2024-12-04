@@ -52,8 +52,6 @@ menu_title = Title(
 def main_menu():
     while True:
         draw_gradient(screen, (173, 216, 230), (255, 240, 245))
-        #draw_abstract_shapes(screen)
-        #draw_wave(screen, pygame.time.get_ticks() * 0.002, (0, 200, 255))
         update_particles(screen)
 
         menu_title.draw(screen)
@@ -89,7 +87,3 @@ def main_menu():
 
         # Cập nhật màn hình
         pygame.display.flip()
-
-# Chạy chương trình
-#if __name__ == "__main__" and "main.py" in sys.argv[0]:
-    #main_menu()

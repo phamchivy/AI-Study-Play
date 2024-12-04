@@ -2,7 +2,6 @@ import pygame
 from utils.button import Button  # Import Button từ utils
 import sys
 from functions.challenge.highknees_challenge import *
-import cv2
 import sqlite3
 import os
 from utils.background import *
@@ -32,7 +31,7 @@ title_font = pygame.font.Font(font_path, 30)
 text_font=pygame.font.Font(text_path, 20)
 
 # Tạo các nút bấm trong menu chính
-recovery_button = Button("Start", 300, 150, 200, 50,LIGHT_PINK , HOVER)
+start_challenge_button = Button("Start", 300, 150, 200, 50,LIGHT_PINK , HOVER)
 highscore_button = Button("High score", 300, 250, 200, 50, LIGHT_PINK, HOVER)
 back_button = Button("Back", 650, 500, 100, 50, LIGHT_PINK, HOVER)
 
@@ -136,10 +135,11 @@ def show_challenge(screen):
     # Trang chính
     while True:
         draw_gradient(screen, (173, 216, 230), (255, 240, 245))
-
+        update_particles(screen)
+        
         # Vẽ các nút
-        recovery_button.is_hovered()
-        recovery_button.draw(screen, title_font)
+        start_challenge_button.is_hovered()
+        start_challenge_button.draw(screen, title_font)
 
         # Vẽ các nút
         highscore_button.is_hovered()
@@ -156,36 +156,15 @@ def show_challenge(screen):
                 sys.exit()
 
             # Kiểm tra khi nhấn các nút
-            if recovery_button.is_clicked(event):
+            if start_challenge_button.is_clicked(event):
                 print("Start Challenge")
                 high_knees_challenge(screen)
 
             if highscore_button.is_clicked(event):
                 print("High Score")
                 show_high_scores(screen,badge_images)
-                # Tắt Pygame trước khi chuyển sang chế độ Squat
-                #run_squat()
+
             if back_button.is_clicked(event):
                 print("Back")
                 return
         pygame.display.flip()
-
-"""
-# Hàm chạy chế độ Squat
-def run_squat():
-    if evaluate_squat_pose() :
-    # Khởi động lại Pygame và quay lại menu chính
-        pygame.init()
-        screen = pygame.display.set_mode((800, 600))
-        pygame.display.set_caption("Chọn chế độ chơi")
-        show_gym(screen)  # Quay lại menu chính
-"""
-
-"""
-# Chạy menu chọn chế độ chơi
-if __name__ == "__main__":
-    pygame.init()
-    screen = pygame.display.set_mode((800, 600))
-    pygame.display.set_caption("Chọn chế độ chơi")
-    show_challenge(screen)
-"""

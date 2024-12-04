@@ -56,6 +56,8 @@ pose = mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5)
 def evaluate_squat_pose():
     cap = cv2.VideoCapture(0)
     exited = False  # Cờ đánh dấu đã thoát
+    squat_count=0
+    squat_down = False  # Cờ đánh dấu người chơi đang squat xuống
 
     while cap.isOpened():
         ret, frame = cap.read()
@@ -78,9 +80,13 @@ def evaluate_squat_pose():
             cv2.putText(frame, f'Angle: {int(angle)}', (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
             if 90 <= angle <= 140:
                 cv2.putText(frame, 'Squat: Correct - Stand up', (50, 100), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
-            else:
+                squat_down = True  # Đánh dấu rằng người chơi đã squat xuống
+            elif angle > 170 and squat_down:  # Tư thế đứng thẳng trở lại
                 cv2.putText(frame, 'Squat: Correct - Squat down', (50, 100), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
+                squat_count+=1
+                squat_down = False  # Reset cờ
 
+        cv2.putText(frame, f'Count: {squat_count}', (50, 150), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
         cv2.imshow('Squat Pose Evaluation', frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):

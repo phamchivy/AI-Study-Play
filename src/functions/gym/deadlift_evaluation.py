@@ -64,6 +64,8 @@ pose = mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5)
 def evaluate_deadlift_pose():
     cap = cv2.VideoCapture(0)
     exited = False  # Cờ đánh dấu đã thoát
+    deadlift_down = False
+    deadlift_count=0
 
     while cap.isOpened():
         ret, frame = cap.read()
@@ -97,19 +99,19 @@ def evaluate_deadlift_pose():
             cv2.putText(frame, f'Knee Angle: {int(knee_angle)}', (50, 100), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
             
             # Kiểm tra thẳng lưng (góc 160-180)
-            if 160 <= angle <= 180:
+            if 160 <= angle <= 180 and deadlift_down:
+                deadlift_down=False
+                deadlift_count+=1
                 cv2.putText(frame, 'Deadlift: Correct - Lift it Down!', (50, 150), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
 
             # Kiểm tra nếu mắt cá, đầu gối và vai gần thẳng hàng
             elif is_aligned(ankle, knee, shoulder, threshold=0.1):
                 cv2.putText(frame, 'Deadlift: Good - Keep going!', (50, 150), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
                 if 90 <= angle <= 120 and knee_angle >= 120:
+                    deadlift_down=True
                     cv2.putText(frame, 'Deadlift: Correct - Lift it Up (Good Form)!', (50, 200), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
-            # Kiểm tra góc vai-hông-đầu gối khi Lift it Up (120-150 độ)
-            #elif 120 <= angle <= 150 and knee_angle >= 160:
-                #cv2.putText(frame, 'Deadlift: Correct - Lift it Up (Good Form)!', (50, 150), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
-            #else:
-                #cv2.putText(frame, 'Deadlift: Incorrect', (50, 100), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2, cv2.LINE_AA)
+
+            cv2.putText(frame, f'Count: {deadlift_count}', (50, 300), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
 
         # Hiển thị kết quả
         cv2.imshow('Deadlift Pose Evaluation', frame)
@@ -132,7 +134,6 @@ def show_deadlift(screen):
         y_pos = 60
         instruction_title.draw(screen)
         show_text(screen, y_pos, instructions, SCREEN_WIDTH)
-        #screen.blit(image, (260, 250))
         start_button.is_hovered()
         start_button.draw(screen, back_font)
         back_button.is_hovered()

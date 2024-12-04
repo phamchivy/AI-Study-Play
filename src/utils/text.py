@@ -33,6 +33,6 @@ def show_text(screen,y_pos,instructions,SCREEN_WIDTH):
         for line in wrapped_lines:
             text_surface = text_font.render(line, True, NAVY)
             # Căn chỉnh văn bản theo vị trí ngang và dọc
-            x_pos = SCREEN_WIDTH // 6 # Căn từ SCREEN_WIDTH // 5
+            x_pos = SCREEN_WIDTH // 6 # Căn từ SCREEN_WIDTH // 6
             y_pos += 50        # Cách nhau 50px cho mỗi dòng
             screen.blit(text_surface, (x_pos, y_pos))

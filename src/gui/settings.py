@@ -86,10 +86,9 @@ effect_slider = Slider(350, 300, 200, 20, effect_volume)
 
 # Hàm cài đặt
 def settings_menu(screen):
-    #global background_volume, effect_volume
-
     while True:
         draw_gradient(screen, (173, 216, 230), (255, 240, 245))
+        update_particles(screen)
         settings_title.draw(screen)
 
         # Vẽ các thành phần

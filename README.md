@@ -41,7 +41,10 @@ A **Pose Estimation Game** built using **Python**, **Pygame**, **OpenCV**, and *
 1. Clone this repository:
     ```bash
     git clone https://github.com/phamchivy/Motion-checking.git
+    ```
+    ```bash
     cd Motion-checking
+    ```
 2. Install dependencies:
     ```bash
     pip install -r requirements.txt
@@ -49,20 +52,34 @@ A **Pose Estimation Game** built using **Python**, **Pygame**, **OpenCV**, and *
     ```bash
     python main.py
 ## Screenshots 📸
-    Include relevant screenshots of the game here.
+This is the results I've test all of the funtions of the game. The full video: (https://drive.google.com/file/d/19BRLmrQ5CQXQ5wgxSPGnWzQH6eOcEslp/view?usp=sharing).
+- Rehabilitation Mode:
+![Mô tả hình ảnh](assets/results/Rehabilitation.gif)
+- Squat Mode:
+![Mô tả hình ảnh](assets/results/Squat.gif)
+- Deadlift Mode:
+![Mô tả hình ảnh](assets/results/Deadlift.gif)
+- Push up Mode:
+![Mô tả hình ảnh](assets/results/Pushup.gif)
+- Challenge Mode:
+![Mô tả hình ảnh](assets/results/Highknees.gif)
 ## Future Improvements 🚧
 - Add more exercises and rehabilitation activities.
 - Enhance leaderboard functionality with user profiles.
 - Support multiplayer or online competition modes.
 - Improve the settings menu with additional customization options.
 - Add more languages for a broader audience.
+<!--
 ## Known Issues 🐞
     Document any known bugs or issues here.
+-->
 ## Contributions 🤝
 - I would like to express my gratitude to **Mr. Hoang Quang Huy** for teaching me C++ and providing invaluable feedback on this project. Your guidance has been instrumental in shaping both my skills and this project. Thank you for your support and encouragement!
-- Thenkiu **Jang Công chúa** đã 'quấy nhiễu' và giúp tớ chọn giao diện siuuuuuuu dễ thương ạ (như cậu) 🌸.
+- Thenkiu **Công chúa Jang** đã 'quấy nhiễu' và giúp tớ chọn giao diện siuuuuuuu dễ thương ạ (như cậu) 🌸.
+<!--
 ## License 📄
     Specify the license under which your project is distributed.
+-->
 # Enjoy the game and level up your fitness while having fun!
 
 

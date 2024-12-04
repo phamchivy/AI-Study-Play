@@ -88,16 +88,12 @@ def evaluate_pushup_pose():
                     stage = 'down'
                     cv2.putText(frame, 'Push-up Down: Correct', (50, 100), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
                     cv2.putText(frame, f'Stage: {stage}', (50, 150), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
-                #else:
-                    #cv2.putText(frame, 'Push-up Down: Incorrect', (50, 100), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2, cv2.LINE_AA)
 
             elif angle > 150 and stage == 'down':  # Giai đoạn lên
                 stage = 'up'
                 cv2.putText(frame, 'Push-up Up: Correct', (50, 200), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
                 cv2.putText(frame, f'Stage: {stage}', (50, 250), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
                 pushup_count += 1  # Tăng số lần chống đẩy khi hoàn thành một chu kỳ xuống - lên
-                #else:
-                    #cv2.putText(frame, 'Push-up Up: Incorrect', (50, 150), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2, cv2.LINE_AA)
 
             # Hiển thị số lần chống đẩy lên màn hình
             cv2.putText(frame, f'Count: {pushup_count}', (50, 300), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
@@ -125,7 +121,6 @@ def show_pushup(screen):
         y_pos = 60
         instruction_title.draw(screen)
         show_text(screen, y_pos, instructions, SCREEN_WIDTH)
-        #screen.blit(image, (260, 250))
         start_button.is_hovered()
         start_button.draw(screen, back_font)
         back_button.is_hovered()

@@ -131,7 +131,6 @@ def start_gesture_game(screen):
     # Chọn động tác ban đầu
     current_gesture_index = 0
     current_gesture = GESTURES[current_gesture_index]
-    start_time = time.time()
     score = 0
 
     # Vòng lặp chính
@@ -176,11 +175,6 @@ def start_gesture_game(screen):
                 score += 1
                 current_gesture_index = (current_gesture_index + 1) % len(GESTURES)  # Chuyển sang động tác tiếp theo
                 current_gesture = GESTURES[current_gesture_index]  # Lấy động tác tiếp theo
-                start_time = time.time()
-
-        # Kiểm tra thời gian
-        #if time.time() - start_time > 10:  # Quá 10 giây để thực hiện động tác
-            #running = False
 
         # Hiển thị camera trong cửa sổ OpenCV
         cv2.imshow("Camera", frame)
