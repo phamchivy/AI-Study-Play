@@ -54,14 +54,19 @@ A **Pose Estimation Game** built using **Python**, **Pygame**, **OpenCV**, and *
 ## Screenshots 📸
 This is the results I've test all of the funtions of the game. The full video: (https://drive.google.com/file/d/19BRLmrQ5CQXQ5wgxSPGnWzQH6eOcEslp/view?usp=sharing).
 - Rehabilitation Mode:
+
 ![Mô tả hình ảnh](assets/results/Rehabilitation.gif)
 - Squat Mode:
+
 ![Mô tả hình ảnh](assets/results/Squat.gif)
 - Deadlift Mode:
+
 ![Mô tả hình ảnh](assets/results/Deadlift.gif)
 - Push up Mode:
+
 ![Mô tả hình ảnh](assets/results/Pushup.gif)
 - Challenge Mode:
+
 ![Mô tả hình ảnh](assets/results/Highknees.gif)
 ## Future Improvements 🚧
 - Add more exercises and rehabilitation activities.
