@@ -2,25 +2,32 @@ import sqlite3
 from datetime import datetime
 
 # Kết nối tới cơ sở dữ liệu
-conn = sqlite3.connect("fitness_app.db")
+conn = sqlite3.connect("AI_Study_Play.db")
 cursor = conn.cursor()
 
 # Dữ liệu cần chèn
-user_id = 1
-user_name = "John Doe"
-high_knee_count = 25
-timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+user_name = "Pham Chi Vy"
+scores = 0
+start_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+end_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-# Câu lệnh INSERT INTO
+# Chèn vào handwriting_results
 cursor.execute("""
-    INSERT INTO high_knees_results (user_id,user_name, reps, challenge_date)
+    INSERT INTO handwriting_results (user_name, scores, start_time, end_time)
     VALUES (?, ?, ?, ?)
-""", (user_id,user_name, high_knee_count, timestamp))
+""", (user_name, scores, start_time, end_time))
 
-# Lưu thay đổi vào cơ sở dữ liệu
 conn.commit()
+print("Đã chèn vào handwriting_results.\n")
 
-print("Dữ liệu đã được chèn vào bảng.")
+# Chèn vào fingercounting_results
+cursor.execute("""
+    INSERT INTO fingercounting_results (user_name, scores, start_time, end_time)
+    VALUES (?, ?, ?, ?)
+""", (user_name, scores, start_time, end_time))
+
+conn.commit()
+print("Đã chèn vào fingercounting_results.\n")
 
 # Đóng kết nối
 conn.close()

@@ -10,7 +10,6 @@ pygame.init()
 
 SCREEN_WIDTH = 800
 font_path="../assets/fonts/Gamefont.ttf"
-text_path="../assets/fonts/Text.ttf"
 title_font = pygame.font.Font(font_path, 40)
 back_font = pygame.font.Font(font_path, 30)
 
@@ -20,7 +19,6 @@ LIGHT_PINK = (255, 182, 193)
 HOVER= (245, 162, 173)
 
 font = pygame.font.Font(font_path, 40)
-text_font=pygame.font.Font(text_path, 20)
 back_button = Button("Back", 650, 500, 100, 50, LIGHT_PINK, HOVER)
 
 # Tạo đối tượng Title
@@ -36,9 +34,9 @@ instruction_title = Title(
 
 # Nội dung hướng dẫn
 instructions = [
-    "1. Rehabilitation: Thực hiện các động tác tay theo yêu cầu để phục hồi chức năng tay. Game sẽ theo dõi các cử động và cung cấp phản hồi khi bạn thực hiện đúng động tác.",
-    "2. Gym: Chỉnh sửa tư thế khi thực hiện các bài tập thể dục. Game giúp bạn duy trì tư thế đúng để tránh chấn thương và cải thiện hiệu quả tập luyện.",
-    "3. Challenge: Thử thách High Knees vui vẻ cùng với mọi người và lưu lại kết quả nhé."
+    "Our game is designed to make learning fun and engaging for primary school children. It offers two interactive modes to help kids improve their math skills:",
+    "1. Handwriting Mode – where children solve math problems by writing their answers directly by hand.",
+    "2. Finger Counting Mode – where they use their fingers to represent and complete math operations."
 ]
 
 # Hàm hiển thị hướng dẫn

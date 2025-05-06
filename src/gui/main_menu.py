@@ -18,7 +18,7 @@ play_background_music()
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-pygame.display.set_caption("Pose Estimation Game")
+pygame.display.set_caption("AI Study Play")
 
 # Màu sắc
 WHITE = (255, 255, 255)
@@ -39,7 +39,7 @@ exit_button = Button("Exit", 300, 500, 200, 50, LIGHT_PINK, HOVER)
 
 # Tạo đối tượng Title
 menu_title = Title(
-    text="Pose Estimation", 
+    text="AI Study Play", 
     font=title_font, 
     color=LIGHT_PINK, 
     position=(SCREEN_WIDTH // 2, 120), 
