@@ -9,6 +9,7 @@ from db.save_db import save_handwriting_result_to_db
 from db.fetch_data import fetch_hand_high_scores
 import time
 from datetime import datetime
+import sys
 
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
@@ -156,7 +157,7 @@ def show_high_scores(screen, badge_images=None):
 
         # Vẽ các nút
         back_button.is_hovered()
-        back_button.draw(screen, title_font)
+        back_button.draw(screen, back_font)
 
         # Hiển thị tiêu đề
         highscore_title.draw(screen)
