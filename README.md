@@ -42,7 +42,7 @@ The Hand Writing Mode uses a Convolutional Neural Network (CNN) to recognize dig
 
 The CNN model is built with the following architecture:
 
-    ```bash
+    
     model = tf.keras.Sequential([
     tf.keras.layers.Conv2D(32, (3, 3), activation='relu', input_shape=(28,28,1)),
     tf.keras.layers.MaxPooling2D((2, 2)),
@@ -52,7 +52,7 @@ The CNN model is built with the following architecture:
     tf.keras.layers.Dense(128, activation='relu'),
     tf.keras.layers.Dense(10, activation='softmax')
     ])
-    ```
+    
 
 This CNN is trained to classify grayscale digit images (28x28 pixels) into one of the 10 digit classes (0–9). It enables the system to accurately interpret the player’s handwritten answers and compare them with the correct solution to each math expression.
 
